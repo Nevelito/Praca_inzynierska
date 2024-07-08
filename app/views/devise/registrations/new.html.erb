@@ -1,29 +1,35 @@
-<h2>Sign up</h2>
+<div class="w-full flex items-center justify-center">
+  <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+    <h2 class="text-blue-500 text-center text-3xl font-bold mb-6"><%= I18n.t("devise.signup") %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field">
+        <%= f.label :email, I18n.t("devise.email"), class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <div class="field mt-4">
+        <%= f.label :password, I18n.t("devise.password"), class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <% if @minimum_password_length %>
+          <div class="text-xs text-neutral-700"><%= I18n.t("devise.password_info", length: @minimum_password_length) %></div>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <div class="field mt-4">
+        <%= f.label :password_confirmation, I18n.t("devise.password_confirmation"), class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <div class="flex items-center justify-center mt-3">
+        <%= f.submit I18n.t("devise.signup"), class: "primary-button text-xl rounded-lg px-3 py-1" %>
+      </div>
+    <% end %>
+
+    <div class="mt-10">
+      <%= link_to I18n.t("devise.login"), new_session_path(resource_name), class: "secondary-button w-32 rounded-lg px-3 py-1 place-items-center text-sm" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

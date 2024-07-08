@@ -34,6 +34,7 @@ gem 'redis', '~> 4.0'
 
 gem 'pg'
 
+gem 'i18n'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -78,3 +79,5 @@ end
 
 gem 'avo', '>= 3.2'
 gem 'devise', '~> 4.9'
+
+gem 'tailwindcss-rails', '~> 2.6'
