@@ -1,0 +1,12 @@
+pl:
+  hello: "siema"
+  devise:
+    login: "Zaloguj się"
+    signup: "Zarejestruj się"
+    forgot_password: "Zapomniane hasło?"
+    password: "Hasło"
+    password_confirmation: "Potwierdź hasło"
+    password_info: "Minimalna długość hasła to %{length} znaków"
+    email: "E-mail"
+    remember_me: "Zapamiętaj mnie"
+    send_confirmation_mail: "Wyślij instrukcje zmiany hasła"
