@@ -10,3 +10,9 @@ pl:
     email: "E-mail"
     remember_me: "Zapamiętaj mnie"
     send_confirmation_mail: "Wyślij instrukcje zmiany hasła"
+  pages:
+    home:
+      welcome_in: "Witaj w <span class='font-bold'> newSAVEel </span>, Twoim niezastąpionym narzędziu do zarządzania miesięcznymi wydatkami i organizowania dnia. Nasza aplikacja została stworzona z myślą o osobach, które chcą lepiej kontrolować swoje finanse i efektywniej planować swój czas. Dzięki intuicyjnemu interfejsowi i zaawansowanym funkcjom, zarządzanie budżetem i harmonogramem staje się łatwe i przyjemne."
+      name: "newSAVEel"
+      save_time: "Aplikacja pozwoli Ci planować swój dzień i wyśle powiadomienie, gdy zbliża się zaplanowana czynność. Możesz swobodnie dodawać rzeczy, które musisz zrobić, i kliknąć 'rozpocznij' w dowolnym momencie. Aplikacja będzie monitorować i wizualizować wykonane czynności każdego dnia."
+      save_money: "Aplikacja pomoże Ci zarządzać swoimi finansami. Możesz łatwo dodawać swoje wydatki i oszczędności oraz śledzić swoje postępy w oszczędzaniu. Aplikacja będzie monitorować i wizualizować Twoje codzienne finanse, pomagając Ci osiągnąć Twoje cele oszczędnościowe."
