@@ -1,0 +1,25 @@
+<div class="flex flex-row justify-between px-3 xl:px-8 h-18 w-full bg-neutral-100 place-items-center">
+  <div class=" text-sm font-bold xl:text-3xl text-blue-500 w-24 xl:w-42"><%= I18n.t("pages.home.name") %></div>
+  <div class="flex flex-row space-x-4 xl:space-x-10 h-full">
+    <div class="h-full flex items-center justify-center w-8 xl:w-14 <%= check_if_active(["pages"]) %>">
+      <%= link_to root_path do %>
+        <%= image_tag "home.png", class: "h-5 w-5 xl:h-10 xl:w-10" %>
+      <% end %>
+    </div>
+    <div class="h-full flex items-center justify-center w-8 xl:w-14">
+      <%= link_to "#" do %>
+        <%= image_tag "time.png", class: "h-5 w-5 xl:h-10 xl:w-10" %>
+      <% end %>
+    </div>
+    <div class="h-full flex items-center justify-center w-8 xl:w-14">
+      <%= link_to "#" do %>
+        <%= image_tag "money.png", class: "h-5 w-5 xl:h-10 xl:w-10" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex w-24 xl:w-42 justify-end">
+    <%= link_to "#", data: { turbo_frame: "modal" }, class: "cursor-pointer" do %>
+      <%= image_tag "burger.png", class: "h-5 w-5 xl:h-10 xl:w-10" %>
+    <% end %>
+  </div>
+</div>

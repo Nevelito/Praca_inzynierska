@@ -340,6 +340,7 @@ DEPENDENCIES
   tailwindcss-rails (~> 2.6)
   turbo-rails
   tzinfo-data
+  view_component (~> 3.0)
   web-console
 
 RUBY VERSION
