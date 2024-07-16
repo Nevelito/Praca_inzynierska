@@ -15,9 +15,11 @@ gem 'jbuilder'
 gem 'redis', '~> 4.0'
 gem 'pg'
 gem 'i18n'
-gem 'view_component', '~> 3.0'
+gem "view_component"
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
+gem 'pry'
+gem 'pry-rails'
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -51,3 +53,5 @@ gem 'avo', '>= 3.2'
 gem 'devise', '~> 4.9'
 
 gem 'tailwindcss-rails', '~> 2.6'
+
+gem "pundit", "~> 2.3"

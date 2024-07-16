@@ -11,8 +11,8 @@
         <%= image_tag "time.png", class: "h-5 w-5 xl:h-10 xl:w-10" %>
       <% end %>
     </div>
-    <div class="h-full flex items-center justify-center w-8 xl:w-14">
-      <%= link_to "#" do %>
+    <div class="h-full flex items-center justify-center w-8 xl:w-14 <%= check_if_active(["money"]) %>">
+      <%= link_to money_index_path do %>
         <%= image_tag "money.png", class: "h-5 w-5 xl:h-10 xl:w-10" %>
       <% end %>
     </div>

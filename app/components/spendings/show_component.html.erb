@@ -1,0 +1,17 @@
+<div class="flex flex-col mx-6 xl:mx-12 bg-neutral-200 rounded-lg pb-8 mb-10">
+  <div class="flex flex-row h-20 justify-between place-items-center px-12">
+    <div>Wydatki</div>
+    <%= link_to "Nowy wydatek",
+                new_spending_path,
+                data: { turbo_frame: "modal" },
+                class: "bg-blue-700 text-white border border-blue-700 py-2 px-4" %>
+  </div>
+  <div class="flex flex-row h-10 justify-between place-items-center mx-4 xl:mx-8 px-4 xl:px-8 font-bold border-b-2 border-gray-950">
+    <div>kwota</div>
+    <div>type</div>
+    <div>data</div>
+  </div>
+  <div class="flex flex-col px-4 xl:px-8">
+    <%= render Spendings::DetailComponent.with_collection(spendings) %>
+  </div>
+</div>

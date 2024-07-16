@@ -12,7 +12,12 @@
 
   <body class="w-full">
     <%= render 'layouts/navbar' %>
+    <div id="flash" class="flash mt-8 ml-8">
+      <%= render "layouts/flash" %>
+    </div>
     <main class="mt-16">
+      <div id="overlay" data-modal-target="overlay" class="fixed top-0 left-0 right-0 bottom-0 bg-neutral-800 opacity-50 z-40 pointer-events-none hidden"></div>
+      <%= turbo_frame_tag "modal" %>
       <%= yield %>
     </main>
   </body>
