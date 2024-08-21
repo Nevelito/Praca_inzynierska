@@ -11,13 +11,13 @@ module Incomes
     end
 
     def call
-      validator = IncomeValidator.new(params: params)
+      validator = IncomeValidator.new(params)
       validator.validate_data
       if validator.success?
-        Income.create!(amount: params[:amount],
+        Income.create!(amount: params[:income][:amount],
                        user_id: current_user.id,
-                       month: params[:month],
-                       year: params[:year]
+                       month: params[:income][:month],
+                       year: params[:income][:year]
         )
       else
         @errors = validator.errors

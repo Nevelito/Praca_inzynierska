@@ -11,14 +11,14 @@ module Spendings
     end
 
     def call
-      validator = SpendingValidator.new(params: params)
+      validator = SpendingValidator.new(params)
       validator.validate_data
       if validator.success?
-        Spending.create!(amount: params[:amount],
+        Spending.create!(amount: params[:spending][:amount],
                        user_id: current_user.id,
-                       kind: params[:kind],
-                       month: params[:month],
-                       year: params[:year]
+                       kind: params[:spending][:kind],
+                       month: params[:spending][:month],
+                       year: params[:spending][:year]
         )
       else
         @errors = validator.errors

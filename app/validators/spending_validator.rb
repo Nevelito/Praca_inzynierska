@@ -7,10 +7,10 @@ class SpendingValidator < BaseValidator
 
   def initialize(params)
     super
-    @amount = params.dig(:income, :amount)
-    @month = params.dig(:income, :month)
-    @year = params.dig(:income, :year)
-    @kind = params.dig(:income, :kind)
+    @amount = params.dig(:spending, :amount)
+    @month = params.dig(:spending, :month)
+    @year = params.dig(:spending, :year)
+    @kind = params.dig(:spending, :kind)
   end
 
   def validate_data
