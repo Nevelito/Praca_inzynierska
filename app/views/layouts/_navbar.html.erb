@@ -1,4 +1,4 @@
-<div class="flex flex-row justify-between px-3 xl:px-8 h-18 w-full bg-neutral-100 place-items-center">
+<div data-controller="menu" class="flex flex-row justify-between px-3 xl:px-8 h-18 w-full bg-neutral-100 place-items-center">
   <div class=" text-sm font-bold xl:text-3xl text-blue-500 w-24 xl:w-42"><%= I18n.t("pages.home.name") %></div>
   <div class="flex flex-row space-x-4 xl:space-x-10 h-full">
     <div class="h-full flex items-center justify-center w-8 xl:w-14 <%= check_if_active(["pages"]) %>">
@@ -18,8 +18,27 @@
     </div>
   </div>
   <div class="flex w-24 xl:w-42 justify-end">
-    <%= link_to "#", data: { turbo_frame: "modal" }, class: "cursor-pointer" do %>
-      <%= image_tag "burger.png", class: "h-5 w-5 xl:h-10 xl:w-10" %>
-    <% end %>
+    <%= image_tag "burger.png", data: { action: "click->menu#toggleBurgerDropdownVisibility" }, class: "h-5 w-5 xl:h-10 xl:w-10 cursor-pointer" %>
+  </div>
+  <div data-menu-target="burgerDropdown" class="hidden fixed inset-0 top-0 h-full bg-white overflow-y-auto z-50 drop-shadow-neutral xl:absolute xl:top-24 xl:right-12 xl:w-96 xl:h-auto xl:inset-auto">
+    <div class="flex flex-row xl:hidden justify-between px-4 pt-5 place-items-center mb-5">
+      <div class="text-xl font-bold text-blue-500"><%= I18n.t("pages.home.name") %></div>
+      <div><%= image_tag "x.png", data: { action: "click->menu#toggleBurgerDropdownVisibility" }, class: "w-5 h-5" %></div>
+    </div>
+    <div>
+      <div class="h-px bg-neutral-300 xl:hidden"></div>
+      <%= link_to("#", class: "") do %>
+        <div class="flex h-18 px-6 place-items-center text-blue-500 text-xl">Ustawienia profilu</div>
+      <% end %>
+      <div class="h-px bg-neutral-300"></div>
+      <% if current_user&.admin %>
+        <%= link_to(avo_path, method: :get, class: "") do %>
+          <div class="flex h-18 px-6 place-items-center text-blue-500 text-xl">Panel Administratora</div>
+        <% end %>
+      <% end %>
+      <%= link_to(destroy_user_session_path, data: { turbo_method: :delete }, class: "") do %>
+        <div class="flex h-18 px-6 place-items-center text-blue-500 text-xl">Wyloguj się</div>
+      <% end %>
+    </div>
   </div>
 </div>
