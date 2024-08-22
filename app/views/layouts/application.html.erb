@@ -11,7 +11,9 @@
   </head>
 
   <body class="w-full">
-    <%= render 'layouts/navbar' %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
     <div id="flash" class="flash mt-8 ml-8">
       <%= render "layouts/flash" %>
     </div>
