@@ -4,23 +4,24 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
-gem 'rails', '~> 7.0.8', '>= 7.0.8.1'
-gem 'sprockets-rails'
-gem 'sqlite3', '~> 1.4'
-gem 'puma', '~> 5.0'
-gem 'importmap-rails'
-gem 'turbo-rails'
-gem 'stimulus-rails'
-gem 'jbuilder'
-gem 'redis', '~> 4.0'
-gem 'pg'
-gem 'i18n'
-gem "view_component"
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
+gem 'chartkick'
+gem 'httparty'
+gem 'i18n'
+gem 'importmap-rails'
+gem 'jbuilder'
+gem 'pg'
 gem 'pry'
 gem 'pry-rails'
-
+gem 'puma', '~> 5.0'
+gem 'rails', '~> 7.0.8', '>= 7.0.8.1'
+gem 'redis', '~> 4.0'
+gem 'sprockets-rails'
+gem 'sqlite3', '~> 1.4'
+gem 'stimulus-rails'
+gem 'turbo-rails'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'view_component'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -54,4 +55,4 @@ gem 'devise', '~> 4.9'
 
 gem 'tailwindcss-rails', '~> 2.6'
 
-gem "pundit", "~> 2.3"
+gem 'pundit', '~> 2.3'

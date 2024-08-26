@@ -14,14 +14,25 @@ module Spendings
       validator = SpendingValidator.new(params)
       validator.validate_data
       if validator.success?
-        Spending.create!(amount: params[:spending][:amount],
-                       user_id: current_user.id,
-                       kind: params[:spending][:kind],
-                       month: params[:spending][:month],
-                       year: params[:spending][:year]
-        )
+        amount_in_pln = convert_amount_to_pln(params[:spending][:amount], params[:spending][:currency])
+        Spending.create!(amount: amount_in_pln,
+                         user_id: current_user.id,
+                         kind: params[:spending][:kind],
+                         description: params[:spending][:description],
+                         date: params[:spending][:date])
       else
         @errors = validator.errors
+      end
+    end
+
+    private
+
+    def convert_amount_to_pln(amount, currency_code)
+      if currency_code == 'PLN'
+        amount.to_f
+      else
+        service = NbpApiService.new
+        service.convert_to_pln(amount, currency_code)
       end
     end
   end

@@ -1,0 +1,7 @@
+<div class="flex flex-row h-18 place-items-center justify-between border-2 border-neutral-300 bg-white px-4 xl:px-8">
+  <div class="flex w-1/6"><%= "#{spending.amount} PLN" %></div>
+  <div class="flex w-1/6 justify-center"><%= "#{kind}" %></div>
+  <div class="flex w-5/12 justify-center"><%= "#{spending.description}" %></div>
+  <div class="flex w-1/6 justify-center"><%= "#{date.strftime("%d")} #{I18n.t("date.month_names")[date.strftime("%m").to_i]} #{date.strftime("%Y")}" %></div>
+  <div class="flex w-1/12 justify-end"><%= render Money::Spendings::OptionButtonsComponent.new(spending: spending) %></div>
+</div>

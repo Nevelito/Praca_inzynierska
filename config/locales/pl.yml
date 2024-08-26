@@ -1,5 +1,33 @@
 pl:
-  hello: "siema"
+  date:
+    month_names:
+      - ~
+      - Styczeń
+      - Luty
+      - Marzec
+      - Kwiecień
+      - Maj
+      - Czerwiec
+      - Lipiec
+      - Sierpień
+      - Wrzesień
+      - Październik
+      - Listopad
+      - Grudzień
+    month_skr:
+      - ~
+      - Sty
+      - Lut
+      - Mar
+      - Kwi
+      - Maj
+      - Cze
+      - Lip
+      - Sie
+      - Wrz
+      - Paź
+      - Lis
+      - Gru
   devise:
     login: "Zaloguj się"
     signup: "Zarejestruj się"
@@ -17,21 +45,70 @@ pl:
       save_time: "Aplikacja pozwoli Ci planować swój dzień i wyśle powiadomienie, gdy zbliża się zaplanowana czynność. Możesz swobodnie dodawać rzeczy, które musisz zrobić, i kliknąć 'rozpocznij' w dowolnym momencie. Aplikacja będzie monitorować i wizualizować wykonane czynności każdego dnia."
       save_money: "Aplikacja pomoże Ci zarządzać swoimi finansami. Możesz łatwo dodawać swoje wydatki i oszczędności oraz śledzić swoje postępy w oszczędzaniu. Aplikacja będzie monitorować i wizualizować Twoje codzienne finanse, pomagając Ci osiągnąć Twoje cele oszczędnościowe."
   incomes:
+    none: "Brak"
+    delete_income: "Czy napewno chcesz usunąć przychód?"
+    incomes: "Przychody"
+    amount: "Kwota"
+    description: "Opis"
+    date: "Data"
+    options: "Opcje"
     new:
       new_income: "Nowy przychód"
       amount: "Kwota"
-      add_amount: "Dodaj kwote ..."
-      month: "Miesiąc"
-      year: "Rok"
+      add_amount: "Dodaj kwote..."
+      date: "Data"
       cancel: "Anuluj"
       save: "Zapisz"
+      description: "Opis"
+      add_description: "Dodaj krótki opis..."
+      currency: "Waluta"
+    edit:
+      edit_income: "Edytuj przychód"
+      amount: "Kwota"
+      edit_amount: "Edytuj kwote ..."
+      date: "Data"
+      cancel: "Anuluj"
+      save: "Zapisz"
+      description: "Opis"
+      edit_description: "Edytuj opis..."
   spendings:
+    none: "Brak"
+    delete_spending: "Czy napewno chcesz usunąć wydatek?"
+    spendings: "Wydatki"
+    amount: "Kwota"
+    type: "Typ"
+    description: "Opis"
+    date: "Data"
+    options: "Opcje"
     new:
       new_spending: "Nowy wydatek"
       amount: "Kwota"
-      add_amount: "Dodaj kwote ..."
+      add_amount: "Dodaj kwote..."
       category: "Kategoria"
-      month: "Miesiąc"
-      year: "Rok"
+      date: "Data"
       cancel: "Anuluj"
       save: "Zapisz"
+      description: "Opis"
+      add_description: "Dodaj krótki opis..."
+      currency: "Waluta"
+    edit:
+      edit_spending: "Edytuj wydatek"
+      amount: "Kwota"
+      edit_amount: "Edytuj kwote..."
+      category: "Kategoria"
+      date: "Data"
+      cancel: "Anuluj"
+      save: "Zapisz"
+      description: "Opis"
+      edit_description: "Edytuj opis..."
+  money:
+    month: "Miesiąc:"
+    year: "Rok:"
+    filter: "Filtruj"
+    overall_balance: "Dostępne środki:"
+    monthly_balance: "Saldo miesięczne:"
+    yearly_balance: "Saldo roczne:"
+    rates:
+      currency: "Waluta"
+      rate: "Kurs"
+      rates_on_day: "Kursy walut na dzień:"

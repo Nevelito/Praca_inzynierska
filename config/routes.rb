@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :money, only: :index
-  resources :spendings, only: [:new, :create]
-  resources :incomes, only: [:new, :create]
+  resources :spendings, only: %i[new create edit update destroy]
+  resources :incomes, only: %i[new create edit update destroy]
   # Defines the root path route ("/")
   # root "articles#index"
 end

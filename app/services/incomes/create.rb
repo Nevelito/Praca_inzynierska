@@ -14,13 +14,24 @@ module Incomes
       validator = IncomeValidator.new(params)
       validator.validate_data
       if validator.success?
-        Income.create!(amount: params[:income][:amount],
+        amount_in_pln = convert_amount_to_pln(params[:income][:amount], params[:income][:currency])
+        Income.create!(amount: amount_in_pln,
                        user_id: current_user.id,
-                       month: params[:income][:month],
-                       year: params[:income][:year]
-        )
+                       description: params[:income][:description],
+                       date: params[:income][:date])
       else
         @errors = validator.errors
+      end
+    end
+
+    private
+
+    def convert_amount_to_pln(amount, currency_code)
+      if currency_code == 'PLN'
+        amount.to_f
+      else
+        service = NbpApiService.new
+        service.convert_to_pln(amount, currency_code)
       end
     end
   end

@@ -12,8 +12,8 @@ class BaseValidator
   end
 
   def frontline_errors
-    errors << ""
-    errors.join("<br>")
+    errors << ''
+    errors.join('<br>')
   end
 
   private
@@ -25,6 +25,6 @@ class BaseValidator
   end
 
   def blank_error
-    errors << I18n.t("validators.blank_error")
+    errors << I18n.t('validators.blank_error')
   end
 end

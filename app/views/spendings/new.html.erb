@@ -12,16 +12,28 @@
             <%= f.number_field :amount, maxlength: 100, placeholder: I18n.t("spendings.new.add_amount"), class: "w-full placeholder-neutral-800 border border-neutral-300 h-13 py-[0.88rem] px-4 mr-5 focus:outline-none" %>
           </div>
           <div class="flex flex-col mt-5 mb-7 gap-3 xl:mb-10">
+            <%= f.label :currency, I18n.t("incomes.new.currency") %>
+            <%= f.select :currency, options_for_select(
+              [
+                ['PLN', 'PLN'], ['USD', 'USD'], ['EUR', 'EUR'],
+                ['GBP', 'GBP'], ['CHF', 'CHF'], ['AUD', 'AUD'],
+                ['CAD', 'CAD'], ['CZK', 'CZK'], ['DKK', 'DKK'],
+                ['JPY', 'JPY'], ['NOK', 'NOK'], ['SEK', 'SEK'],
+                ['HUF', 'HUF'], ['RUB', 'RUB'], ['CNY', 'CNY']
+              ], selected: 'PLN',
+              ), {}, class: "border border-neutral-300 overflow-auto py-[0.88rem] px-4 w-full placeholder-neutral-800 focus:outline-none" %>
+          </div>
+          <div class="flex flex-col mt-5 mb-7 gap-3 xl:mb-10">
             <%= f.label :kind, I18n.t("spendings.new.category") %>
-            <%= f.select :kind, options_for_select([["Dom", "house"], ["Samochód", "car"], ["Zdrowie", "health_care"], ["Rozrywka", "pleasure"], ["Jedzenie", "food"], ["Inne", "other"]]), {}, class: "border border-neutral-300 overflow-auto py-[0.88rem] px-4 w-full placeholder-neutral-800 focus:outline-none" %>
+            <%= f.select :kind, options_for_select([["Dom", "house"], ["Samochód", "car"], ["Zdrowie", "healthcare"], ["Rozrywka", "entertaiment"], ["Artykuły spożywcze", "groceries"], ["Restauracja", "restaurant"], ["Zakupy", "shopping"], ["Inne", "other"]]), {}, class: "border border-neutral-300 overflow-auto py-[0.88rem] px-4 w-full placeholder-neutral-800 focus:outline-none" %>
           </div>
           <div class="flex flex-col mt-5 mb-7 gap-3 xl:mb-10">
-            <%= f.label :month, I18n.t("spendings.new.month") %>
-            <%= f.select :month, options_for_select([["Styczeń", 1], ["Luty", 2], ["Marzec", 3], ["Kwiecień", 4], ["Maj", 5], ["Czerwiec", 6], ["Lipiec", 7], ["Sierpień", 8], ["Wrzesień", 9], ["Październik", 10], ["Listopad", 11], ["Grudzień", 12]]), {}, class: "border border-neutral-300 overflow-auto py-[0.88rem] px-4 w-full placeholder-neutral-800 focus:outline-none" %>
+            <%= f.label :date, I18n.t("incomes.new.date") %>
+            <%= f.date_field :date, class: "w-full placeholder-neutral-800 border border-neutral-300 py-[0.88rem] px-4 focus:outline-none" %>
           </div>
           <div class="flex flex-col mt-5 mb-7 gap-3 xl:mb-10">
-            <%= f.label :year, I18n.t("spendings.new.year") %>
-            <%= f.select :year, options_for_select((1900..Date.today.year).to_a.reverse), {}, class: "border border-neutral-300 overflow-auto py-[0.88rem] px-4 w-full placeholder-neutral-800 focus:outline-none" %>
+            <%= f.label :description, I18n.t("spendings.new.description") %>
+            <%= f.text_field :description, maxlength: 100, placeholder: t("spendings.new.add_description"), class: "w-full placeholder-neutral-800 border border-neutral-300 h-13 py-[0.88rem] px-4 mr-5 focus:outline-none" %>
           </div>
           <div class="flex w-full justify-end">
             <%= button_tag I18n.t("spendings.new.cancel"), data: { action: "modal#hideModal" }, type: "button", class: "w-24 h-12 mr-4 xl:mr-5" %>
