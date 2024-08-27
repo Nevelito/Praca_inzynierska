@@ -112,3 +112,56 @@ pl:
       currency: "Waluta"
       rate: "Kurs"
       rates_on_day: "Kursy walut na dzień:"
+  goals:
+    goals: "Cele finansowe"
+    name: "Nazwa"
+    target_amount: "Cel"
+    options: "Opcje"
+    add_goal: "Dodaj nowy cel"
+    add_money_to_goal: "Zasil cel"
+  goal_payments:
+    add_money_to_goal: "Zasil cel:"
+    add_money: "Dodaj kwote..."
+    amount: "Kwota"
+    currency: "Waluta"
+    save: "Zapisz"
+    cancel: "Anuluj"
+  errors:
+    goal_payments:
+      invalid_amount: "Nieprawidłowa kwota"
+      invalid_goal: "Wybrany cel nie istnieje"
+    goals:
+      invalid_name: "Nazwa może mieć maksymalnie 50 znaków"
+      invalid_target_amount: "Nieprawidłowa kwota celu"
+      invalid_desription: "Opis może mieć maksymalnie 100 znaków"
+      invalid_date: "Nieprawidłowa data"
+    incomes:
+      invalid_amount: "Nieprawidłowa kwota"
+      invalid_date: "Nieprawidłowa data"
+      invalid_desription: "Opis może mieć maksymalnie 100 znaków"
+    spendings:
+      invalid_amount: "Nieprawidłowa kwota"
+      invalid_date: "Nieprawidłowa data"
+      invalid_kind: "Nieprawidłowa kategoria"
+      invalid_desription: "Opis może mieć maksymalnie 100 znaków"
+  flash:
+    goal_payments:
+      add: "Wydatek na cel dodany prawidłowo"
+      edit: "Wydatek na cel edytowany prawidłowo"
+      destoy: "Wydatek na cel usunięty prawidłowo"
+      not_existed: "Dany wydatek na cel nie istnieje"
+    goals:
+      add: "Cel dodany prawidłowo"
+      edit: "Cel edytowany prawidłowo"
+      destoy: "Cel usunięty prawidłowo"
+      not_existed: "Dany cel nie istnieje"
+    incomes:
+      add: "Przychód dodany prawidłowo"
+      edit: "Przychód edytowany prawidłowo"
+      destoy: "Przychód usunięty prawidłowo"
+      not_existed: "Dany przychód nie istnieje"
+    spendings:
+      add: "Wydatek dodany prawidłowo"
+      edit: "Wydatek edytowany prawidłowo"
+      destoy: "Wydatek usunięty prawidłowo"
+      not_existed: "Dany wydatek nie istnieje"

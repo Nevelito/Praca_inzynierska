@@ -1,0 +1,13 @@
+<div class="flex flex-row h-18 place-items-center justify-between border-2 border-neutral-300 bg-white my-2 px-4 xl:px-8">
+  <div class="flex w-1/5 font-semibold"><%= goal.name %></div>
+  <div class="flex w-2/5 justify-center"><%= "#{saved_money}PLN / #{goal.target_amount}PLN" %></div>
+  <div class="flex w-1/5 justify-center">
+    <%= link_to I18n.t("goals.add_money_to_goal"),
+                new_goal_payment_path(goal: goal),
+                data: { turbo_frame: "modal" },
+                class: "bg-blue-700 text-white border border-blue-700 py-2 px-4" %>
+  </div>
+  <div class="flex w-1/5 justify-end">
+    <%= render Money::Goals::OptionButtonsComponent.new(goal: goal) %>
+  </div>
+</div>

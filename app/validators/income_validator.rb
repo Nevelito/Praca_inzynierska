@@ -19,13 +19,13 @@ class IncomeValidator < BaseValidator
   def validate_amount?
     return unless amount.nil? || !valid_number?(amount) || amount.to_f <= 0
 
-    errors << 'nieprawidłowa wartość'
+    errors << I18n.t("errors.incomes.invalid_amount")
   end
 
   def validate_date?
     return unless date.nil? || !valid_date?(date)
 
-    errors << 'Nieprawidłowa data'
+    errors << I18n.t("errors.incomes.invalid_date")
   end
 
   def valid_number?(value)

@@ -17,4 +17,5 @@
   <%= render Money::Charts::ColumnComponent.new(data: spendings_by_day, date: selected_date, type: "daily") %>
   <%= render Money::Charts::ColumnComponent.new(data: spendings_by_month, date: selected_date, type: "monthly") %>
   <%= render Money::RatesComponent.new(rates: rates) %>
+  <%= render Money::Goals::ShowComponent.new(goals: goals) %>
 </div>

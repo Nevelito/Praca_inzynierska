@@ -1,0 +1,15 @@
+<div class="flex flex-row space-x-4 place-items-center">
+  <%= link_to goal_path(goal) do %>
+    <%= inline_svg_tag "menu_burger.svg", class: "w-4 h-4" %>
+  <% end %>
+  <%= link_to edit_goal_path(goal), remote: true, data: { turbo_frame: 'modal' } do %>
+    <%= inline_svg_tag "pen.svg", class: "w-4 h-4" %>
+  <% end %>
+  <%= link_to goal_path(goal), data: {
+    turbo_method: :delete,
+    turbo_frame: "_top",
+    turbo_confirm: t("goals.delete_goal")
+  } do %>
+    <%= inline_svg_tag "trash_can.svg", class: "w-4 h-4" %>
+  <% end %>
+</div>

@@ -23,19 +23,19 @@ class SpendingValidator < BaseValidator
   def validate_amount?
     return unless amount.nil? || !valid_number?(amount) || amount.to_f <= 0
 
-    errors << 'nieprawidłowa wartość'
+    errors << I18n.t("errors.spendings.invalid_amount")
   end
 
   def validate_date?
     return unless date.nil? || !valid_date?(date)
 
-    errors << 'Nieprawidłowa data'
+    errors << I18n.t("errors.spendings.invalid_date")
   end
 
   def validate_kind?
     return if VALID_KINDS.include?(kind)
 
-    errors << 'nieprawidłowa kategoria'
+    errors << I18n.t("errors.spendings.invalid_kind")
   end
 
   def valid_number?(value)

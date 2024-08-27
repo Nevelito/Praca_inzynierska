@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-class SpendingsController < ApplicationController
+class GoalPaymentsController < ApplicationController
   def new
-    render :new, locals: { spending: Spending.new }
+    render :new, locals: { goal_payment: GoalPayment.new, goal: }
   end
 
   def edit
-    render :edit, locals: { spending: }
+    render :edit, locals: { goal_payment: }
   end
 
   def create
-    service = Spendings::Create.call(params:, current_user:)
+    service = GoalPayments::Create.call(params:, current_user:)
     if service.success?
-      flash[:success] = I18n.t("flash.spendings.add")
+      flash[:success] = I18n.t("flash.goal_payments.add")
       redirect_back_or_to money_index_path, status: :see_other
     else
       flash.now[:alert] = service.errors.flatten
@@ -21,9 +21,9 @@ class SpendingsController < ApplicationController
   end
 
   def update
-    service = Spendings::Update.call(params:, current_user:, spending:)
+    service = GoalPayments::Update.call(params:, current_user:, goal_payment:)
     if service.success?
-      flash[:success] = I18n.t("flash.spendings.edit")
+      flash[:success] = I18n.t("flash.goal_payments.edit")
       redirect_back_or_to money_index_path, status: :see_other
     else
       flash.now[:alert] = service.errors.flatten
@@ -32,18 +32,22 @@ class SpendingsController < ApplicationController
   end
 
   def destroy
-    if spending
-      spending.destroy
-      flash[:success] = I18n.t("flash.spendings.destoy")
+    if goal_payment
+      goal_payment.destroy
+      flash[:success] = I18n.t("flash.goal_payments.destoy")
     else
-      flash[:alert] = I18n.t("flash.spendings.not_existed")
+      flash[:alert] = I18n.t("flash.goal_payments.not_existed")
     end
     redirect_back_or_to money_index_path, status: :see_other
   end
 
   private
 
-  def spending
-    Spending.find(params[:id])
+  def goal_payment
+    GoalPayment.find(params[:id])
+  end
+
+  def goal
+    Goal.find(params[:goal])
   end
 end
