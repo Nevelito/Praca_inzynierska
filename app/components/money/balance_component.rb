@@ -12,5 +12,9 @@ module Money
     def render?
       balance.present?
     end
+
+    def color
+      balance < 0 ? "text-red-500" : "text-green-500"
+    end
   end
 end

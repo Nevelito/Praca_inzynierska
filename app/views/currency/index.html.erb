@@ -1,0 +1,10 @@
+<div class="flex flex-col">
+  <div class="flex px-4 xl:px-12">
+    <%= link_to "javascript:history.back()", class: "flex mt-0 xl:mt-4 pl-2 mb-4" do %>
+      <%= inline_svg_tag "arrow_left.svg", class: "w-6 h-6" %>
+      <p class="text-green-900 font-medium ml-3"><%= I18n.t('goals.back') %></p>
+    <% end %>
+  </div>
+  <%= render Money::Currencies::CalculatorComponent.new(currencies: currencies) %>
+  <%= render Money::Currencies::RatesComponent.new(rates: rates, home_site: false) %>
+</div>

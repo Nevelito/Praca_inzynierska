@@ -1,8 +1,15 @@
 <div class="flex flex-col mx-6 xl:mx-12 bg-neutral-200 rounded-lg pb-8 mb-10">
-  <div class="px-8 py-6">
-    <h3 class="text-lg font-semibold text-gray-700"><%= "#{I18n.t("money.rates.rates_on_day")} #{date}" %></h3>
+  <div class="px-4 xl:px-8 py-6 flex flex-col xl:flex-row justify-between space-y-4 xl:space-y-0 bg-gradient-to-r from-blue-500 to-blue-300 text-white mb-6">
+    <div class="text-sm xl:text-lg font-semibold"><%= "#{I18n.t("money.rates.rates_on_day")} #{date}" %></div>
+    <% if home_site %>
+      <div>
+        <%= link_to I18n.t("currencies.go_to_calculator"),
+                    currency_index_path,
+                    class: "bg-blue-700 text-white border border-blue-700 py-2 px-4 text-sm xl:text-base rounded-full shadow-md hover:bg-blue-800 transition duration-300" %>
+      </div>
+  <% end %>
   </div>
-  <div class="overflow-x-auto mx-8">
+  <div class="overflow-x-auto mx-4 xl:mx-8">
     <table class="min-w-full bg-white border-collapse">
       <thead class="bg-neutral-100">
       <tr>

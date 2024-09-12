@@ -17,8 +17,6 @@ class MoneyController < ApplicationController
       overall_balance:,
       monthly_balance:,
       yearly_balance:,
-      spendings_by_month:,
-      spendings_by_day:,
       rates:,
       goals:
     }
@@ -52,18 +50,6 @@ class MoneyController < ApplicationController
     total_spendings = spendings.sum(:amount)
     total_goal_payments = goal_payments.sum(:amount)
     total_incomes - total_spendings - total_goal_payments
-  end
-
-  def spendings_by_month
-    Spending.where(date: @selected_date.beginning_of_year..@selected_date.end_of_year)
-            .group('EXTRACT(MONTH FROM date)')
-            .sum(:amount)
-  end
-
-  def spendings_by_day
-    Spending.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month)
-            .group('EXTRACT(DAY FROM date)')
-            .sum(:amount)
   end
 
   def rates

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module GoalPayments
-  class Create < BaseService
+  class Update < BaseService
     attr_reader :params, :current_user, :goal_payment
 
     def initialize(params:, current_user:, goal_payment:)
@@ -12,7 +12,7 @@ module GoalPayments
     end
 
     def call
-      goal = Goal.find(params[:goal_payment][:goal_id])
+      goal = Goal.find(goal_payment.goal_id)
       @errors << I18n.t("errors.goal_payments.invalid_goal") if goal.blank?
       validator = GoalPaymentValidator.new(params)
       validator.validate_data
@@ -20,7 +20,7 @@ module GoalPayments
         goal_payment.update!(amount: params[:goal_payment][:amount],
                          goal_id: goal.id,
                          user_id: current_user.id,
-                         date: Time.zone.now.date)
+                         payment_date: Time.zone.today)
       else
         @errors = validator.errors
       end

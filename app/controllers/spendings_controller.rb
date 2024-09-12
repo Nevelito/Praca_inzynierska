@@ -41,9 +41,53 @@ class SpendingsController < ApplicationController
     redirect_back_or_to money_index_path, status: :see_other
   end
 
+  def index
+    @selected_date = if params[:month] && params[:year]
+                       Date.new(params[:year].to_i, params[:month].to_i, 1)
+                     elsif params[:selected_date].present?
+                       Date.parse(params[:selected_date])
+                     else
+                       Time.zone.today
+                     end
+    @kind = if params[:kind].present?
+              params[:kind]
+            else
+              "all"
+            end
+    @spendings = current_user.spendings.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month)
+
+    render :index, locals: {
+      spendings: @spendings,
+      selected_date: @selected_date,
+      spendings_by_month:,
+      spendings_by_day:,
+      filtered_spendings:
+    }
+  end
+
   private
 
   def spending
     Spending.find(params[:id])
+  end
+
+  def spendings_by_month
+    Spending.where(date: @selected_date.beginning_of_year..@selected_date.end_of_year)
+            .group('EXTRACT(MONTH FROM date)')
+            .sum(:amount)
+  end
+
+  def spendings_by_day
+    Spending.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month)
+            .group('EXTRACT(DAY FROM date)')
+            .sum(:amount)
+  end
+
+  def filtered_spendings
+    if @kind == "all"
+      @spendings
+    else
+      @spendings.where(kind: @kind)
+    end
   end
 end

@@ -1,21 +1,15 @@
 # frozen_string_literal: true
-
 module Money
   module Incomes
     class DetailComponent < ViewComponent::Base
-      with_collection_parameter :income
-
-      def initialize(income:)
-        @income = income
+      def initialize(text:, amount:)
+        @text = text
+        @amount = amount
       end
 
       private
 
-      attr_reader :income
-
-      def date
-        income.date
-      end
+      attr_reader :text, :amount
     end
   end
 end

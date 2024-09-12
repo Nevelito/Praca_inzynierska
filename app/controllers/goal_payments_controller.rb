@@ -6,7 +6,7 @@ class GoalPaymentsController < ApplicationController
   end
 
   def edit
-    render :edit, locals: { goal_payment: }
+    render :edit, locals: { goal_payment:, goal: Goal.find(goal_payment.goal_id) }
   end
 
   def create

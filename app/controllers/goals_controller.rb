@@ -41,9 +41,17 @@ class GoalsController < ApplicationController
     redirect_back_or_to money_index_path, status: :see_other
   end
 
+  def show
+    render :show, locals: { goal:, goal_payments: }
+  end
+
   private
 
   def goal
     Goal.find(params[:id])
+  end
+
+  def goal_payments
+    GoalPayment.where(goal_id: goal.id)
   end
 end

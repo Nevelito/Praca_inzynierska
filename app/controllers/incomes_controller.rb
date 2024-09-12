@@ -41,9 +41,39 @@ class IncomesController < ApplicationController
     redirect_back_or_to money_index_path, status: :see_other
   end
 
+  def index
+    @selected_date = if params[:month] && params[:year]
+                       Date.new(params[:year].to_i, params[:month].to_i, 1)
+                     elsif params[:selected_date].present?
+                       Date.parse(params[:selected_date])
+                     else
+                       Time.zone.today
+                     end
+    incomes = current_user.incomes.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month)
+
+    render :index, locals: {
+      incomes:,
+      selected_date: @selected_date,
+      incomes_by_month:,
+      incomes_by_day:
+    }
+  end
+
   private
 
   def income
     Income.find(params[:id])
+  end
+
+  def incomes_by_month
+    Income.where(date: @selected_date.beginning_of_year..@selected_date.end_of_year)
+            .group('EXTRACT(MONTH FROM date)')
+            .sum(:amount)
+  end
+
+  def incomes_by_day
+    Income.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month)
+            .group('EXTRACT(DAY FROM date)')
+            .sum(:amount)
   end
 end

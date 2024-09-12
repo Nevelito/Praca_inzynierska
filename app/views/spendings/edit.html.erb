@@ -9,7 +9,7 @@
         <%= form_for(spending, data: { turbo_frame: "_top" }, html: { class: "w-full" }) do |f| %>
           <div class="flex flex-col gap-3">
             <%= f.label :amount, I18n.t("spendings.edit.amount") %>
-            <%= f.number_field :amount, maxlength: 100, placeholder: I18n.t("spendings.edit.add_amount"), class: "w-full placeholder-neutral-800 border border-neutral-300 h-13 py-[0.88rem] px-4 mr-5 focus:outline-none" %>
+            <%= f.number_field :amount, step: "any", maxlength: 100, placeholder: I18n.t("spendings.edit.add_amount"), class: "w-full placeholder-neutral-800 border border-neutral-300 h-13 py-[0.88rem] px-4 mr-5 focus:outline-none" %>
           </div>
           <div class="flex flex-col mt-5 mb-7 gap-3 xl:mb-10">
             <%= f.label :kind, I18n.t("spendings.edit.category") %>

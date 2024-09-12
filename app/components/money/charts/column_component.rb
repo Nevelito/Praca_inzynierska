@@ -14,15 +14,49 @@ module Money
       attr_reader :data, :date, :type
 
       def period
-        type == 'daily' ? I18n.t('date.month_names')[date.strftime('%m').to_i] : date.strftime('%Y')
+        case type
+        when "daily_spendings"
+          "#{I18n.t('date.month_names')[date.strftime('%m').to_i]} #{date.strftime('%Y')}"
+        when "daily_incomes"
+          "#{I18n.t('date.month_names')[date.strftime('%m').to_i]} #{date.strftime('%Y')}"
+        else
+          date.strftime('%Y')
+        end
       end
 
       def xtitle
-        type == 'daily' ? 'Dzień' : 'Miesiąc'
+        case type
+        when "daily_spendings"
+          "Dzień"
+        when "daily_incomes"
+          "Dzień"
+        else
+          "Miesiąc"
+        end
       end
 
       def period_text
-        type == 'daily' ? 'Dzienne' : 'Miesięczne'
+        case type
+        when "daily_spendings"
+          "Dzienne wydatki"
+        when "daily_incomes"
+          "Dzienne przychody"
+        when "monthly_spendings"
+          "Miesięczne wydatki"
+        else
+          "Miesięczne przychody"
+        end
+      end
+
+      def ytitle
+        case type
+        when "daily_spendings"
+          "Wydatki"
+        when "monthly_spendings"
+          "Wydatki"
+        else
+          "Przychody"
+        end
       end
     end
   end

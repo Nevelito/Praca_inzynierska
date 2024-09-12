@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Money
-  module Spendings
+module Spendings
+  module History
     class OptionButtonsComponent < ViewComponent::Base
       def initialize(spending:)
         @spending = spending

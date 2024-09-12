@@ -1,0 +1,15 @@
+<div class="flex items-center justify-center mb-12">
+  <%= form_with url: incomes_path, method: :get, local: true, class: "flex flex-col xl:flex-row xl:items-center space-y-6 xl:space-y-0 xl:space-x-6 bg-white shadow-md rounded-lg p-6" do |f| %>
+    <div class="flex flex-col xl:flex-row items-center xl:items-center space-y-2 xl:space-y-0 xl:space-x-4">
+      <%= f.label :month, I18n.t("incomes.month"), class: "text-gray-700 text-lg font-semibold" %>
+      <%= f.select :month, (1..12).map { |m| [I18n.t("date.month_names")[m], m] }, { selected: date.strftime("%m").to_i || Date.today.month }, class: "border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" %>
+    </div>
+    <div class="flex flex-col xl:flex-row items-center xl:items-center space-y-2 xl:space-y-0 xl:space-x-4">
+      <%= f.label :year, I18n.t("incomes.year"), class: "text-gray-700 text-lg font-semibold" %>
+      <%= f.number_field :year, value: date.strftime("%Y").to_i || Date.today.year, class: "border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" %>
+    </div>
+    <div class="flex items-center justify-center">
+      <%= f.submit I18n.t("incomes.filter"), class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" %>
+    </div>
+  <% end %>
+</div>

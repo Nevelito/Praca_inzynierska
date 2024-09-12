@@ -1,19 +1,13 @@
 <div class="flex flex-col mx-6 xl:mx-12 bg-neutral-200 rounded-lg pb-8 mb-10">
-  <div class="flex flex-row h-20 justify-between place-items-center px-12">
-    <div><%= I18n.t("spendings.spendings") %></div>
-    <%= link_to "Nowy wydatek",
-                new_spending_path,
-                data: { turbo_frame: "modal" },
-                class: "bg-blue-700 text-white border border-blue-700 py-2 px-4" %>
+  <div class="flex flex-row h-20 justify-between place-items-center px-4 xl:px-12 bg-gradient-to-r from-blue-500 to-blue-300 text-white mb-6">
+    <div class="text-sm xl:text-xl font-bold"><%= I18n.t("spendings.spendings") %></div>
+    <%= link_to "Wszystkie wydatki",
+                spendings_path(selected_date: date),
+                class: "bg-blue-700 text-white border border-blue-700 py-2 px-4 text-sm xl:text-base rounded-full shadow-md hover:bg-blue-800 transition duration-300" %>
   </div>
-  <div class="flex flex-row h-10 justify-between place-items-center mx-4 xl:mx-8 px-4 xl:px-8 font-bold border-b-2 border-gray-950">
-    <div class="flex w-1/6"><%= I18n.t("spendings.amount") %></div>
-    <div class="flex w-1/6 justify-center"><%= I18n.t("spendings.type") %></div>
-    <div class="flex w-5/12 justify-center"><%= I18n.t("spendings.description") %></div>
-    <div class="flex w-1/6 justify-center"><%= I18n.t("spendings.date") %></div>
-    <div class="flex w-1/12 justify-end"><%= I18n.t("spendings.options") %></div>
+  <div class="flex flex-row">
+    <%= render Money::Spendings::DetailComponent.new(text: "Dzisiaj", amount: spendings_today) %>
+    <%= render Money::Spendings::DetailComponent.new(text: "W tym miesiącu", amount: spendings_this_month) %>
   </div>
-  <div class="flex flex-col px-4 xl:px-8">
-    <%= render Money::Spendings::DetailComponent.with_collection(spendings) %>
-  </div>
+
 </div>

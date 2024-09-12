@@ -1,0 +1,20 @@
+<div class="flex flex-col mx-6 xl:mx-12 bg-neutral-200 rounded-lg mb-10">
+  <div class="flex font-bold text-sm mb-3 xl:text-xl xl:mb-6 bg-gradient-to-r from-blue-500 to-blue-300 text-white h-20 place-items-center px-6 xl:px-12">Wydatki podzielone na kategorie</div>
+  <div class="flex flex-col xl:px-6">
+    <div class="flex flex-row">
+      <div class="flex w-1/3"><%= render Spendings::KindComponent.new(spendings: spendings, kind: "all") %></div>
+      <div class="flex w-1/3"><%= render Spendings::KindComponent.new(spendings: spendings, kind: "house") %></div>
+      <div class="flex w-1/3"><%= render Spendings::KindComponent.new(spendings: spendings, kind: "car") %></div>
+    </div>
+    <div class="flex flex-row">
+      <div class="flex w-1/3"><%= render Spendings::KindComponent.new(spendings: spendings, kind: "restaurant") %></div>
+      <div class="flex w-1/3"><%= render Spendings::KindComponent.new(spendings: spendings, kind: "groceries") %></div>
+      <div class="flex w-1/3"><%= render Spendings::KindComponent.new(spendings: spendings, kind: "shopping") %></div>
+    </div>
+    <div class="flex flex-row">
+      <div class="flex w-1/3"><%= render Spendings::KindComponent.new(spendings: spendings, kind: "healthcare") %></div>
+      <div class="flex w-1/3"><%= render Spendings::KindComponent.new(spendings: spendings, kind: "entertaiment") %></div>
+      <div class="flex w-1/3"><%= render Spendings::KindComponent.new(spendings: spendings, kind: "other") %></div>
+    </div>
+  </div>
+</div>
