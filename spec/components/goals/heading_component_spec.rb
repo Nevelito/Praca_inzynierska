@@ -24,7 +24,7 @@ RSpec.describe Goals::HeadingComponent, type: :component do
 
   it "rednders correct money" do
     expect(page).to have_content I18n.t("goals.earn_money")
-    expect(page).to have_content "#{goal_payments.sum(&:amount)}PLN / #{goal.target_amount}PLN"
+    expect(page).to have_content "#{goal_payments.sum(&:amount)} PLN / #{goal.target_amount} PLN"
   end
 
   it "rednders correct table headings" do

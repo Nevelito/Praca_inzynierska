@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Incomes::FormComponent, type: :component do
+RSpec.describe Money::FormComponent, type: :component do
   let(:date) { Date.today }
   let(:component) { described_class.new(date:) }
 
