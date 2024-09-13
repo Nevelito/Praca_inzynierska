@@ -1,0 +1,14 @@
+<div class="flex flex-col">
+  <div class="px-4 xl:px-12 mb-6">
+    <%= link_to money_index_path, class: "flex mt-0 xl:mt-4 pl-2 mb-4" do %>
+      <%= inline_svg_tag "arrow_left.svg", class: "w-6 h-6" %>
+      <p class="text-green-900 font-medium ml-3"><%= I18n.t('goals.back') %></p>
+    <% end %>
+  </div>
+  <%= render Spendings::FormComponent.new(date: selected_date, kind: @kind) %>
+  <%= render Spendings::History::ShowComponent.new(spendings: filtered_spendings) %>
+  <%= render Spendings::Charts::PieComponent.new(spendings: spendings) %>
+  <%= render Spendings::AllCategoryComponent.new(spendings: spendings) %>
+  <%= render Money::Charts::ColumnComponent.new(data: spendings_by_day, date: selected_date, type: "daily_spendings") %>
+  <%= render Money::Charts::ColumnComponent.new(data: spendings_by_month, date: selected_date, type: "monthly_spendings") %>
+</div>

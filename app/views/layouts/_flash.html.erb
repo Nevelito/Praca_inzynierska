@@ -1,0 +1,19 @@
+<div class="fixed top-0 left-1/2 -translate-x-1/2 p-3 z-[1000]">
+  <% flash.each do |type, message| %>
+    <% flash_color = type.to_s == "alert" ? 'from-red-100 to-red-700' : 'from-green-100 to-green-700' %>
+    <div class="flex space-x-4 items-center w-full max-w-s p-4 text-gray-600 bg-gradient-to-r <%= flash_color %> rounded-lg shadow-lg transition transform duration-300"
+         data-controller="notification"
+         data-notification-delay-value="5000"
+         class="transition transform duration-1000 hidden"
+         data-transition-enter-from="opacity-0 translate-x-6"
+         data-transition-enter-to="opacity-100 translate-x-0"
+         data-transition-leave-from="opacity-100 translate-x-0"
+         data-transition-leave-to="opacity-0 translate-x-6"
+    >
+      <%= message %>
+      <button type="button" data-action="notification#hide" class="ms-2 -mx-1.5 -my-1.5 text-gray-400 hover:text-gray-900 rounded-lg hover:ring-1 hover:ring-gray-300 p-1" aria-label="Close">
+        <%= image_tag "x.svg", class: "h-2 sm:h-5" %>
+      </button>
+    </div>
+  <% end %>
+</div>

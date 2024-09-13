@@ -1,0 +1,18 @@
+<div class="flex flex-col mx-6 xl:mx-12 bg-neutral-200 rounded-lg pb-8 mb-10">
+  <div class="flex flex-row h-20 justify-between items-center px-4 xl:px-12 border-b border-neutral-200 bg-gradient-to-r from-blue-500 to-blue-300 text-white">
+    <div class="text-xl font-bold"><%= I18n.t("incomes.incomes") %></div>
+    <%= link_to "Nowy przychód",
+                new_income_path,
+                data: { turbo_frame: "modal" },
+                class: "bg-blue-700 text-white border border-blue-700 py-2 px-4 text-sm xl:text-base rounded-full shadow-md hover:bg-blue-800 transition duration-300" %>
+  </div>
+  <div class="flex flex-row h-10 justify-between place-items-center mx-4 xl:mx-8 px-4 xl:px-8 font-bold border-b-2 border-gray-950">
+    <div class="flex w-1/2 xl:w-1/6"><%= I18n.t("incomes.amount") %></div>
+    <div class="hidden xl:flex w-7/12 justify-center"><%= I18n.t("incomes.description") %></div>
+    <div class="hidden xl:flex w-1/6 justify-center"><%= I18n.t("incomes.date") %></div>
+    <div class="flex w-1/2 xl:w-1/12 justify-end"><%= I18n.t("incomes.options") %></div>
+  </div>
+  <div class="flex flex-col px-4 xl:px-8">
+    <%= render Incomes::History::DetailComponent.with_collection(incomes) %>
+  </div>
+</div>

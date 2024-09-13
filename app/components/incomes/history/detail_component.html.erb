@@ -1,0 +1,8 @@
+<div class="flex flex-row h-20 items-center justify-between border-b border-neutral-200 bg-white px-4 xl:px-8 shadow-md rounded-lg mb-4">
+  <div class="flex w-1/2 xl:w-1/6 text-blue-700 font-medium"><%= "#{income.amount} PLN" %></div>
+  <div class="hidden xl:flex w-7/12 text-gray-700 justify-center"><%= income.description %></div>
+  <div class="hidden xl:flex w-1/6 text-gray-600 justify-center"><%= "#{date.strftime("%d")} #{I18n.t("date.month_names")[date.strftime("%m").to_i]} #{date.strftime("%Y")}" %></div>
+  <div class="flex w-1/2 xl:w-1/12 justify-end">
+    <%= render Incomes::History::OptionButtonsComponent.new(income: income) %>
+  </div>
+</div>

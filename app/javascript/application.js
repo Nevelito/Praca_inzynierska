@@ -2,3 +2,5 @@
 import "@hotwired/turbo-rails"
 import "@hotwired/stimulus"
 import "./controllers"
+import "chartkick"
+import "Chart.bundle"

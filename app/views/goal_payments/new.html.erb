@@ -1,0 +1,35 @@
+<%= turbo_frame_tag 'modal' do %>
+  <div data-controller="modal">
+    <div data-modal-target="modal" class="fixed inset-0 flex items-center justify-center z-50">
+      <div class="box-border h-96 w-full max-w-xl bg-white overflow-y-auto xl:w-[44rem] xl:border-l xl:border-neutral-200 xl:shadow-md px-7 xl:px-12">
+        <div class="flex flex-row mt-6 mb-3 w-full xl:mb-6">
+          <h5 class="font-bold text-lg xl:text-2xl"><%= "#{I18n.t('goal_payments.add_money_to_goal')} #{goal.name}" %></h5>
+          <%= inline_svg_tag "x.png", data: { action: "click->modal#hideModal" }, class: "cursor-pointer mt-2 w-4 h-4 ml-auto" %>
+        </div>
+        <%= form_for(goal_payment, data: { turbo_frame: "_top" }, html: { class: "w-full" }) do |f| %>
+          <%= f.hidden_field :goal_id, value: goal.id %>
+          <div class="flex flex-col gap-3">
+            <%= f.label :amount, t('goal_payments.amount') %>
+            <%= f.number_field :amount, maxlength: 100, placeholder: t('goal_payments.add_money'), class: "w-full placeholder-neutral-800 border border-neutral-300 h-13 py-[0.88rem] px-4 mr-5 focus:outline-none" %>
+          </div>
+          <div class="flex flex-col mt-5 mb-7 gap-3 xl:mb-10">
+            <%= f.label :currency, I18n.t("goal_payments.currency") %>
+            <%= f.select :currency, options_for_select(
+              [
+                ['PLN', 'PLN'], ['USD', 'USD'], ['EUR', 'EUR'],
+                ['GBP', 'GBP'], ['CHF', 'CHF'], ['AUD', 'AUD'],
+                ['CAD', 'CAD'], ['CZK', 'CZK'], ['DKK', 'DKK'],
+                ['JPY', 'JPY'], ['NOK', 'NOK'], ['SEK', 'SEK'],
+                ['HUF', 'HUF'], ['RUB', 'RUB'], ['CNY', 'CNY']
+              ], selected: 'PLN',
+              ), {}, class: "border border-neutral-300 overflow-auto py-[0.88rem] px-4 w-full placeholder-neutral-800 focus:outline-none" %>
+          </div>
+          <div class="flex w-full justify-end mt-12">
+            <%= button_tag t('goal_payments.cancel'), data: { action: "modal#hideModal" }, class: "w-24 h-12 mr-4 xl:mr-5" %>
+            <%= f.submit t('goal_payments.save'), class: "bg-green-700 h-12 px-8 text-white" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

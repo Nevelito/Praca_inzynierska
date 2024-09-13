@@ -1,0 +1,13 @@
+<div class="flex flex-row space-x-4 place-items-center">
+  <%= link_to edit_income_path(income), remote: true, data: { turbo_frame: 'modal' } do %>
+    <%= inline_svg_tag "pen.svg", class: "w-4 h-4" %>
+  <% end %>
+  <%= link_to income_path(income), data: {
+    turbo_method: :delete,
+    turbo_frame: "_top",
+    turbo_confirm: t("incomes.delete_income")
+  } do %>
+    <%= inline_svg_tag "trash_can.svg", class: "w-4 h-4" %>
+  <% end %>
+</div>
+

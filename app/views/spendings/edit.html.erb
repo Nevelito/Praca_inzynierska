@@ -1,0 +1,34 @@
+<%= turbo_frame_tag 'modal' do %>
+  <div data-controller="modal">
+    <div data-modal-target="modal">
+      <div class="flex flex-col fixed box-border top-0 bottom-0 w-full bg-white z-50 overflow-y-auto xl:right-0 xl:pb-0 xl:w-[44rem] xl:border-l xl:border-neutral-200 xl:shadow-md px-7 xl:px-12">
+        <div class="flex flex-row mt-8 mb-3 w-full xl:mb-6">
+          <h5 class="font-bold text-lg xl:text-2xl"><%= I18n.t("spendings.edit.edit_spending") %></h5>
+          <%= inline_svg_tag "x.png", data: { action: "click->modal#hideModal" }, class: "cursor-pointer mt-2 w-4 h-4 ml-auto" %>
+        </div>
+        <%= form_for(spending, data: { turbo_frame: "_top" }, html: { class: "w-full" }) do |f| %>
+          <div class="flex flex-col gap-3">
+            <%= f.label :amount, I18n.t("spendings.edit.amount") %>
+            <%= f.number_field :amount, step: "any", maxlength: 100, placeholder: I18n.t("spendings.edit.add_amount"), class: "w-full placeholder-neutral-800 border border-neutral-300 h-13 py-[0.88rem] px-4 mr-5 focus:outline-none" %>
+          </div>
+          <div class="flex flex-col mt-5 mb-7 gap-3 xl:mb-10">
+            <%= f.label :kind, I18n.t("spendings.edit.category") %>
+            <%= f.select :kind, options_for_select([["Dom", "house"], ["Samochód", "car"], ["Zdrowie", "healthcare"], ["Rozrywka", "entertaiment"], ["Artykuły spożywcze", "groceries"], ["Restauracja", "restaurant"], ["Zakupy", "shopping"], ["Inne", "other"]]), {}, class: "border border-neutral-300 overflow-auto py-[0.88rem] px-4 w-full placeholder-neutral-800 focus:outline-none" %>
+          </div>
+          <div class="flex flex-col mt-5 mb-7 gap-3 xl:mb-10">
+            <%= f.label :date, I18n.t("spendings.edit.date") %>
+            <%= f.date_field :date, class: "w-full placeholder-neutral-800 border border-neutral-300 py-[0.88rem] px-4 focus:outline-none" %>
+          </div>
+          <div class="flex flex-col mt-5 mb-7 gap-3 xl:mb-10">
+            <%= f.label :description, I18n.t("spendings.edit.description") %>
+            <%= f.text_field :description, maxlength: 100, placeholder: t("spendings.edit.edit_description"), class: "w-full placeholder-neutral-800 border border-neutral-300 h-13 py-[0.88rem] px-4 mr-5 focus:outline-none" %>
+          </div>
+          <div class="flex w-full justify-end">
+            <%= button_tag I18n.t("spendings.edit.cancel"), data: { action: "modal#hideModal" }, type: "button", class: "w-24 h-12 mr-4 xl:mr-5" %>
+            <%= f.submit I18n.t("spendings.edit.save"), class: "bg-green-700 h-12 px-8 text-white" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

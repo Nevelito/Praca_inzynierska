@@ -1,0 +1,13 @@
+<div class="flex flex-col mx-6 xl:mx-12 bg-neutral-200 rounded-lg pb-8 mb-10">
+  <div class="flex flex-row h-20 justify-between place-items-center px-4 xl:px-12 bg-gradient-to-r from-blue-500 to-blue-300 text-white mb-6">
+    <div class="text-sm xl:text-xl font-bold"><%= I18n.t("incomes.incomes") %></div>
+    <%= link_to "Wszystkie przychody",
+                incomes_path(selected_date: date),
+                class: "bg-blue-700 text-white border border-blue-700 py-2 px-4 text-sm xl:text-base rounded-full shadow-md hover:bg-blue-800 transition duration-300" %>
+  </div>
+  <div class="flex flex-row">
+    <%= render Money::Incomes::DetailComponent.new(text: "Dzisiaj", amount: incomes_today) %>
+    <%= render Money::Incomes::DetailComponent.new(text: "W tym miesiącu", amount: incomes_this_month) %>
+  </div>
+
+</div>

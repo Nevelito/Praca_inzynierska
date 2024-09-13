@@ -1,0 +1,36 @@
+<div data-controller="currency" class="flex flex-col mx-6 xl:mx-12 rounded-lg shadow-md p-6 xl:p-10 mb-10 bg-gradient-to-r from-blue-500 to-blue-300 text-white">
+  <h2 class="text-xl xl:text-2xl font-semibold text-white mb-6"><%= I18n.t("currencies.calculator") %></h2>
+
+  <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
+        <label for="amount" class="text-sm font-medium text-green-900"><%= I18n.t("currencies.money_to_count") %></label>
+        <input type="number" id="amount" data-currency-target="amount" step="0.01" placeholder="Wprowadź kwotę" required class="border border-gray-300 rounded-lg py-2 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="from_currency" class="text-sm font-medium text-green-900"><%= I18n.t("currencies.start_currency") %></label>
+        <select id="from_currency" data-currency-target="fromCurrency" class="border border-gray-300 rounded-lg py-2 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+          <% currencies.each do |currency| %>
+            <option value="<%= currency %>"><%= currency %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="to_currency" class="text-sm font-medium text-green-900"><%= I18n.t("currencies.end_currency") %></label>
+        <select id="to_currency" data-currency-target="toCurrency" class="border border-gray-300 rounded-lg py-2 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+          <% currencies.each do |currency| %>
+            <option value="<%= currency %>"><%= currency %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+
+    <button type="button" data-action="click->currency#convert" class="bg-gradient-to-r from-green-900 to-green-500 text-white rounded-lg py-2 px-4 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+      <%= I18n.t("currencies.count") %>
+    </button>
+
+    <div id="result" data-currency-target="result" class="mt-4 text-lg font-semibold text-gray-800"></div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="flex flex-row h-20 items-center justify-between border-b border-neutral-200 bg-white px-4 xl:px-8 shadow-md rounded-lg mb-4">
+  <div class="flex w-1/2 xl:w-1/5 font-semibold text-blue-700"><%= goal.name %></div>
+  <div class="hidden xl:flex w-2/5 justify-center text-gray-600"><%= "#{saved_money} PLN / #{goal.target_amount} PLN" %></div>
+  <div class="hidden xl:flex w-1/5 justify-center">
+    <%= link_to I18n.t("goals.add_money_to_goal"),
+                new_goal_payment_path(goal: goal),
+                data: { turbo_frame: "modal" },
+                class: "bg-blue-700 text-white border border-blue-700 py-2 px-4 text-sm xl:text-base rounded-full shadow-md hover:bg-blue-800 transition duration-300" %>
+  </div>
+  <div class="flex w-1/2 xl:w-1/12 justify-end">
+    <%= render Money::Goals::OptionButtonsComponent.new(goal: goal) %>
+  </div>
+</div>

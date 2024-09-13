@@ -11,10 +11,13 @@
   </head>
 
   <body class="w-full">
+    <%= turbo_frame_tag :modal %>
     <% if user_signed_in? %>
       <%= render 'layouts/navbar' %>
     <% end %>
-    <main class="mt-16">
+    <main>
+      <div id="overlay" data-modal-target="overlay" class="fixed top-0 left-0 right-0 bottom-0 bg-neutral-800 opacity-50 z-40 pointer-events-none hidden"></div>
+      <%= render partial: "layouts/flash" %>
       <%= yield %>
     </main>
   </body>
