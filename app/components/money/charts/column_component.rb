@@ -9,10 +9,14 @@ module Money
         @type = type
       end
 
+      def render?
+        data.present?
+      end
+
+
       private
 
       attr_reader :data, :date, :type
-
       def period
         case type
         when "daily_spendings"

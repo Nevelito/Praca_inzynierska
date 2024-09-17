@@ -9,6 +9,10 @@ module Spendings
         @spendings = spendings
       end
 
+      def render?
+        spendings.present?
+      end
+
       private
 
       def translated_spendings

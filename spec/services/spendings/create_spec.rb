@@ -39,7 +39,7 @@ RSpec.describe Spendings::Create do
       end
     end
 
-    context "when invalid amount" do
+    context "when invalid date" do
       let(:date) { Time.zone.today }
 
       it "do not create new spening" do
@@ -47,8 +47,16 @@ RSpec.describe Spendings::Create do
       end
     end
 
-    context "when invalid amount" do
+    context "when invalid kind" do
       let(:kind) { "invalid" }
+
+      it "do not create new spening" do
+        expect { service.call }.not_to change(Spending, :count)
+      end
+    end
+
+    context "when invalid description" do
+      let(:description) { "a"*101 }
 
       it "do not create new spening" do
         expect { service.call }.not_to change(Spending, :count)

@@ -8,6 +8,8 @@ require_relative '../config/environment'
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'factory_bot_rails'
+require "capybara/rspec"
+require 'warden'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 Dir[File.expand_path(File.join(File.dirname(__FILE__), "support", "**", "*.rb"))]
@@ -39,6 +41,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
+  config.include Warden::Test::Helpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = Rails.root.join('spec/fixtures')
 
@@ -71,4 +74,5 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include ViewComponent::TestHelpers, type: :component
   config.include ViewComponent::SystemTestHelpers, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
 end

@@ -38,6 +38,13 @@ pl:
     email: "E-mail"
     remember_me: "Zapamiętaj mnie"
     send_confirmation_mail: "Wyślij instrukcje zmiany hasła"
+    sessions:
+      user:
+        signed_in: "Użytkownik zalogowany pomyślnie."
+        signed_out: "Użytkownik wylogowany pomyślnie."
+    failure:
+      user:
+        unauthenticated: "Użytkownik musi być zalogowany."
   pages:
     home:
       welcome_in: "Witaj w <span class='font-bold'> newSAVEel </span>, Twoim niezastąpionym narzędziu do zarządzania miesięcznymi wydatkami i organizowania dnia. Nasza aplikacja została stworzona z myślą o osobach, które chcą lepiej kontrolować swoje finanse i efektywniej planować swój czas. Dzięki intuicyjnemu interfejsowi i zaawansowanym funkcjom, zarządzanie budżetem i harmonogramem staje się łatwe i przyjemne."
@@ -123,10 +130,13 @@ pl:
   goals:
     goals: "Cele finansowe"
     new_goal: "Dodaj nowy cel finansowy"
+    edit_goal: "Edytuj cel finansowy"
     name: "Nazwa"
     add_name: "Dodaj nazwe..."
+    edit_name: "Edytuj nazwe..."
     target_amount: "Cel"
     add_target_amount: "Dodaj kwote..."
+    edit_target_amount: "Edytuj kwote..."
     options: "Opcje"
     add_goal: "Dodaj nowy cel"
     add_money_to_goal: "Zasil cel"
@@ -135,6 +145,7 @@ pl:
     description: "Opis"
     description_2: "Opis:"
     add_description: "Dodaj opis..."
+    edit_description: "Edytuj opis..."
     save: "Zapisz"
     cancel: "Anuluj"
     earn_money: "Do tej pory zebrano:"
@@ -159,40 +170,40 @@ pl:
     go_to_calculator: "Przejdz do kalkulatora walut"
   errors:
     goal_payments:
-      invalid_amount: "Nieprawidłowa kwota"
-      invalid_goal: "Wybrany cel nie istnieje"
+      invalid_amount: "Nieprawidłowa kwota."
+      invalid_goal: "Wybrany cel nie istnieje."
     goals:
-      invalid_name: "Nazwa może mieć maksymalnie 50 znaków"
-      invalid_target_amount: "Nieprawidłowa kwota celu"
-      invalid_desription: "Opis może mieć maksymalnie 100 znaków"
-      invalid_date: "Nieprawidłowa data"
+      invalid_name: "Nazwa może mieć maksymalnie 50 znaków."
+      invalid_target_amount: "Nieprawidłowa kwota celu."
+      invalid_desription: "Opis może mieć maksymalnie 100 znaków."
+      invalid_date: "Nieprawidłowa data."
     incomes:
-      invalid_amount: "Nieprawidłowa kwota"
-      invalid_date: "Nieprawidłowa data"
-      invalid_desription: "Opis może mieć maksymalnie 100 znaków"
+      invalid_amount: "Nieprawidłowa kwota."
+      invalid_date: "Nieprawidłowa data."
+      invalid_desription: "Opis może mieć maksymalnie 100 znaków."
     spendings:
-      invalid_amount: "Nieprawidłowa kwota"
-      invalid_date: "Nieprawidłowa data"
-      invalid_kind: "Nieprawidłowa kategoria"
-      invalid_desription: "Opis może mieć maksymalnie 100 znaków"
+      invalid_amount: "Nieprawidłowa kwota."
+      invalid_date: "Nieprawidłowa data."
+      invalid_kind: "Nieprawidłowa kategoria."
+      invalid_desription: "Opis może mieć maksymalnie 60 znaków."
   flash:
     goal_payments:
-      add: "Wydatek na cel dodany prawidłowo"
-      edit: "Wydatek na cel edytowany prawidłowo"
-      destoy: "Wydatek na cel usunięty prawidłowo"
-      not_existed: "Dany wydatek na cel nie istnieje"
+      add: "Wydatek na cel dodany prawidłowo."
+      edit: "Wydatek na cel edytowany prawidłowo."
+      destoy: "Wydatek na cel usunięty prawidłowo."
+      not_existed: "Dany wydatek na cel nie istnieje."
     goals:
-      add: "Cel dodany prawidłowo"
-      edit: "Cel edytowany prawidłowo"
-      destoy: "Cel usunięty prawidłowo"
-      not_existed: "Dany cel nie istnieje"
+      add: "Cel dodany prawidłowo."
+      edit: "Cel edytowany prawidłowo."
+      destoy: "Cel usunięty prawidłowo."
+      not_existed: "Dany cel nie istnieje."
     incomes:
-      add: "Przychód dodany prawidłowo"
-      edit: "Przychód edytowany prawidłowo"
-      destoy: "Przychód usunięty prawidłowo"
-      not_existed: "Dany przychód nie istnieje"
+      add: "Przychód dodany prawidłowo."
+      edit: "Przychód edytowany prawidłowo."
+      destoy: "Przychód usunięty prawidłowo."
+      not_existed: "Dany przychód nie istnieje."
     spendings:
-      add: "Wydatek dodany prawidłowo"
-      edit: "Wydatek edytowany prawidłowo"
-      destoy: "Wydatek usunięty prawidłowo"
-      not_existed: "Dany wydatek nie istnieje"
+      add: "Wydatek dodany prawidłowo."
+      edit: "Wydatek edytowany prawidłowo."
+      destoy: "Wydatek usunięty prawidłowo."
+      not_existed: "Dany wydatek nie istnieje."

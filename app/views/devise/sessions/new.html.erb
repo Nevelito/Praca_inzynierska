@@ -1,35 +1,34 @@
-<div class="w-full flex items-center justify-center">
-  <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
-    <div class="text-blue-500 text-center text-3xl font-bold mb-6">
-      <%= I18n.t("devise.login") %>
-    </div>
+<div class="flex flex-col items-center bg-gray-50 min-h-screen py-12">
+  <div class="w-full max-w-md bg-gradient-to-r from-blue-600 to-blue-400 shadow-2xl rounded-xl p-8 text-center text-white">
+    <h1 class="text-4xl font-extrabold mb-4">newSAVEel</h1>
+    <h2 class="text-3xl font-bold mb-6"><%= I18n.t("devise.login") %></h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'space-y-4' }) do |f| %>
       <div class="field">
-        <%= f.label :email, I18n.t("devise.email"), class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.label :email, I18n.t("devise.email"), class: "block text-white text-sm font-bold mb-2" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
 
       <div class="field">
-        <%= f.label :password, I18n.t("devise.password"), class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.label :password, I18n.t("devise.password"), class: "block text-white text-sm font-bold mb-2" %>
         <%= f.password_field :password, autocomplete: "current-password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
         <div class="field">
           <%= f.check_box :remember_me, class: "mr-2 leading-tight" %>
-          <%= f.label :remember_me, I18n.t("devise.remember_me"), class: "text-sm text-gray-700" %>
+          <%= f.label :remember_me, I18n.t("devise.remember_me"), class: "text-white text-sm" %>
         </div>
       <% end %>
 
-      <div class="flex items-center justify-center">
-        <%= f.submit I18n.t("devise.login"), class: "primary-button text-xl rounded-lg px-3 py-1" %>
+      <div class="flex items-center justify-center mt-6">
+        <%= f.submit I18n.t("devise.login"), class: "bg-gradient-to-r from-green-600 to-green-400 text-white font-semibold py-2 px-8 rounded-full shadow-lg hover:bg-gray-100 transition-transform transform hover:-translate-y-1 duration-300" %>
       </div>
     <% end %>
 
-    <div class="flex justify-between mt-4">
-      <%= link_to I18n.t("devise.signup"), new_registration_path(resource_name), class: "secondary-button px-3 py-1 rounded-lg text-sm" %>
-      <%= link_to I18n.t("devise.forgot_password"), new_password_path(resource_name), class: "forgot-password-button px-3 py-1 rounded-lg text-sm" %>
+    <div class="flex justify-between mt-6">
+      <%= link_to I18n.t("devise.signup"), new_registration_path(resource_name), class: "bg-white text-blue-700 font-semibold py-2 px-4 rounded-full shadow-lg hover:bg-gray-100 transition-transform transform hover:-translate-y-1 duration-300" %>
+      <%= link_to I18n.t("devise.forgot_password"), new_password_path(resource_name), class: "bg-white text-blue-700 font-semibold py-2 px-4 rounded-full shadow-lg hover:bg-gray-100 transition-transform transform hover:-translate-y-1 duration-300" %>
     </div>
   </div>
 </div>

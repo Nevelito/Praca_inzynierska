@@ -35,34 +35,38 @@ RSpec.describe Spendings::Update do
     it "update spending description" do
       expect { service.call }.to change { spending.reload.description }.to(description)
     end
-
-    # it "update spending date" do
-    #   expect { service.call }.to change { spending.reload.date }.to(date)
-    # end
   end
 
   context "when params are incorrect" do
     context "when invalid amount" do
       let(:amount) { nil }
 
-      it "do not update spening" do
+      it "do not update spending" do
         expect { service.call }.not_to(change { spending.reload.amount })
       end
     end
 
-    context "when invalid amount" do
+    context "when invalid date" do
       let(:date) { Time.zone.today }
 
-      it "do not update spening" do
+      it "do not update spending" do
         expect { service.call }.not_to(change { spending.reload.date })
       end
     end
 
-    context "when invalid amount" do
+    context "when invalid kind" do
       let(:kind) { "invalid" }
 
-      it "do not update spening" do
+      it "do not update spending" do
         expect { service.call }.not_to(change { spending.reload.kind })
+      end
+    end
+
+    context "when invalid description" do
+      let(:description) { "a"*101 }
+
+      it "do not update spending" do
+        expect { service.call }.not_to(change { spending.reload.description })
       end
     end
   end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class MoneyController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
   def index
     @selected_date = if params[:month] && params[:year]
                        Date.new(params[:year].to_i, params[:month].to_i, 1)
