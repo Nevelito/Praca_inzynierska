@@ -45,6 +45,8 @@ pl:
     failure:
       user:
         unauthenticated: "Użytkownik musi być zalogowany."
+        invalid: "Nieprawidłowe hasło lub email."
+        not_found_in_database: "Nie znaleziono danego użytkownika."
   pages:
     home:
       welcome_in: "Witaj w <span class='font-bold'> newSAVEel </span>, Twoim niezastąpionym narzędziu do zarządzania miesięcznymi wydatkami i organizowania dnia. Nasza aplikacja została stworzona z myślą o osobach, które chcą lepiej kontrolować swoje finanse i efektywniej planować swój czas. Dzięki intuicyjnemu interfejsowi i zaawansowanym funkcjom, zarządzanie budżetem i harmonogramem staje się łatwe i przyjemne."
