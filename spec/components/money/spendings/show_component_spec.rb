@@ -14,8 +14,8 @@ RSpec.describe Money::Spendings::ShowComponent, type: :component do
     render_inline(component)
   end
 
-  it { is_expected.to have_rendered(detail_component).with(text: "Dzisiaj", amount: spendings_today) }
-  it { is_expected.to have_rendered(detail_component).with(text: "W tym miesiącu", amount: spendings_this_month) }
+  it { is_expected.to have_rendered(detail_component).with(text: "Dzisiaj:", amount: spendings_today) }
+  it { is_expected.to have_rendered(detail_component).with(text: "W tym miesiącu:", amount: spendings_this_month) }
 
   it "rednders correct text" do
     expect(page).to have_content I18n.t("spendings.spendings")

@@ -16,7 +16,7 @@
     <% if incomes.present? %>
       <%= render Incomes::History::DetailComponent.with_collection(incomes) %>
     <% else %>
-      <div class="flex place-items-center justify-center font-bold mt-8 text-red-700">Brak przychodów w danym okresie</div>
+      <div class="flex place-items-center justify-center font-bold mt-8 text-red-700"><%= I18n.t("incomes.no_incomes") %></div>
     <% end %>
   </div>
 </div>

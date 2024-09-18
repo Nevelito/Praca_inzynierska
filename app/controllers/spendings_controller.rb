@@ -72,13 +72,13 @@ class SpendingsController < ApplicationController
   end
 
   def spendings_by_month
-    Spending.where(date: @selected_date.beginning_of_year..@selected_date.end_of_year)
+    Spending.where(date: @selected_date.beginning_of_year..@selected_date.end_of_year, user: current_user)
             .group('EXTRACT(MONTH FROM date)')
             .sum(:amount)
   end
 
   def spendings_by_day
-    Spending.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month)
+    Spending.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month, user: current_user)
             .group('EXTRACT(DAY FROM date)')
             .sum(:amount)
   end

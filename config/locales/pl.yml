@@ -47,6 +47,9 @@ pl:
         unauthenticated: "Użytkownik musi być zalogowany."
         invalid: "Nieprawidłowe hasło lub email."
         not_found_in_database: "Nie znaleziono danego użytkownika."
+    registrations:
+      signed_up: "Rejestracja zakończona pomyślnie."
+
   pages:
     home:
       welcome_in: "Witaj w <span class='font-bold'> newSAVEel </span>, Twoim niezastąpionym narzędziu do zarządzania miesięcznymi wydatkami i organizowania dnia. Nasza aplikacja została stworzona z myślą o osobach, które chcą lepiej kontrolować swoje finanse i efektywniej planować swój czas. Dzięki intuicyjnemu interfejsowi i zaawansowanym funkcjom, zarządzanie budżetem i harmonogramem staje się łatwe i przyjemne."
@@ -54,7 +57,25 @@ pl:
       save_money: "Aplikacja pomoże Ci zarządzać swoimi finansami. Możesz łatwo dodawać swoje wydatki i oszczędności oraz śledzić swoje postępy w oszczędzaniu. Aplikacja będzie monitorować i wizualizować Twoje codzienne finanse, pomagając Ci osiągnąć Twoje cele oszczędnościowe."
       goals: "Ustawiaj i monitoruj swoje cele finansowe, takie jak oszczędności na wakacje czy fundusz awaryjny. Śledź postępy i otrzymuj przypomnienia, aby łatwiej osiągnąć swoje finansowe marzenia."
       currency: "Sprawdzaj aktualne kursy walut i korzystaj z wbudowanego kalkulatora do szybkiego przeliczania między walutami. Bądź na bieżąco i podejmuj lepsze decyzje finansowe, niezależnie od miejsca i czasu."
+      heading_save_money: "Zaoszczędź swoje pieniądze"
+      heading_goals: "Zaplanuj i osiągnij swój cel"
+      heading_currency: "Bądź na bieżąco z kursami"
+      ready_to_save: "Gotowy, by zacząć oszczędzać?"
+      join_us: "Dołącz do nas już dziś i odkryj, jak łatwo możesz zarządzać swoimi finansami!"
+      go_to_money: "Przejdź do zarządzania pieniędzmi"
+
+  charts:
+    day: "Dzień"
+    month: "Miesiąc"
+    daily_incomes: "Dzienne przychody"
+    daily_spendings: "Dzienne wydatki"
+    monthly_incomes: "Miesięczne przychody"
+    monthly_spendings: "Miesięczne wydatki"
+    spendings: "Wydatki"
+    incomes: "Przychody"
+
   incomes:
+    amount_value: "%{amount} PLN"
     month: "Miesiąc:"
     year: "Rok:"
     filter: "Filtruj"
@@ -65,6 +86,9 @@ pl:
     description: "Opis"
     date: "Data"
     options: "Opcje"
+    no_incomes: "Brak przychodów w danym okresie"
+    today: "Dzisiaj:"
+    this_month: "W tym miesiącu:"
     new:
       new_income: "Nowy przychód"
       amount: "Kwota"
@@ -84,7 +108,9 @@ pl:
       save: "Zapisz"
       description: "Opis"
       edit_description: "Edytuj opis..."
+
   spendings:
+    amount_value: "%{amount} PLN"
     year: "Rok:"
     month: "Miesiąc:"
     filter: "Filtruj"
@@ -97,6 +123,9 @@ pl:
     description: "Opis"
     date: "Data"
     options: "Opcje"
+    today: "Dzisiaj:"
+    this_month: "W tym miesiącu:"
+    no_spendings: "Brak wydatków w danym okresie"
     new:
       new_spending: "Nowy wydatek"
       amount: "Kwota"
@@ -118,6 +147,7 @@ pl:
       save: "Zapisz"
       description: "Opis"
       edit_description: "Edytuj opis..."
+
   money:
     month: "Miesiąc:"
     year: "Rok:"
@@ -129,6 +159,7 @@ pl:
       currency: "Waluta"
       rate: "Kurs"
       rates_on_day: "Kursy walut na dzień:"
+
   goals:
     goals: "Cele finansowe"
     new_goal: "Dodaj nowy cel finansowy"
@@ -151,7 +182,10 @@ pl:
     save: "Zapisz"
     cancel: "Anuluj"
     earn_money: "Do tej pory zebrano:"
+    balance: "%{sum} PLN / %{goal} PLN"
     back: "Wróć"
+    no_goals: "Brak aktualnych celów finansowych"
+
   goal_payments:
     add_money_to_goal: "Zasil cel:"
     edit_money_to_goal: "Edytuj zasilenie celu:"
@@ -163,6 +197,8 @@ pl:
     currency: "Waluta"
     save: "Zapisz"
     cancel: "Anuluj"
+    payments: "Wpłaty:"
+    amount_value: "%{amount} PLN"
   currencies:
     calculator: "Kalkulator walut"
     money_to_count: "Kwota do przeliczenia"
@@ -170,6 +206,7 @@ pl:
     end_currency: "Waluta docelowa"
     count: "Przelicz"
     go_to_calculator: "Przejdz do kalkulatora walut"
+
   errors:
     goal_payments:
       invalid_amount: "Nieprawidłowa kwota."
@@ -188,6 +225,7 @@ pl:
       invalid_date: "Nieprawidłowa data."
       invalid_kind: "Nieprawidłowa kategoria."
       invalid_desription: "Opis może mieć maksymalnie 60 znaków."
+
   flash:
     goal_payments:
       add: "Wydatek na cel dodany prawidłowo."

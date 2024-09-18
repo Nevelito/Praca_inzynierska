@@ -17,7 +17,7 @@
     <% if spendings.present? %>
       <%= render Spendings::History::DetailComponent.with_collection(spendings) %>
     <% else %>
-      <div class="flex place-items-center justify-center font-bold mt-8 text-red-700">Brak wydatków w danym okresie</div>
+      <div class="flex place-items-center justify-center font-bold mt-8 text-red-700"><%= I18n.t("spendings.no_spendings") %></div>
     <% end %>
   </div>
 </div>

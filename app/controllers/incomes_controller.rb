@@ -66,13 +66,13 @@ class IncomesController < ApplicationController
   end
 
   def incomes_by_month
-    Income.where(date: @selected_date.beginning_of_year..@selected_date.end_of_year)
+    Income.where(date: @selected_date.beginning_of_year..@selected_date.end_of_year, user: current_user)
             .group('EXTRACT(MONTH FROM date)')
             .sum(:amount)
   end
 
   def incomes_by_day
-    Income.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month)
+    Income.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month, user: current_user)
             .group('EXTRACT(DAY FROM date)')
             .sum(:amount)
   end
