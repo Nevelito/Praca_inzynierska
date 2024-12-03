@@ -9,10 +9,14 @@ module Money
         @type = type
       end
 
+      def render?
+        data.present?
+      end
+
+
       private
 
       attr_reader :data, :date, :type
-
       def period
         case type
         when "daily_spendings"
@@ -27,35 +31,35 @@ module Money
       def xtitle
         case type
         when "daily_spendings"
-          "Dzień"
+          I18n.t("charts.day")
         when "daily_incomes"
-          "Dzień"
+          I18n.t("charts.day")
         else
-          "Miesiąc"
+          I18n.t("charts.month")
         end
       end
 
       def period_text
         case type
         when "daily_spendings"
-          "Dzienne wydatki"
+          I18n.t("charts.daily_spendings")
         when "daily_incomes"
-          "Dzienne przychody"
+          I18n.t("charts.daily_incomes")
         when "monthly_spendings"
-          "Miesięczne wydatki"
+          I18n.t("charts.monthly_spendings")
         else
-          "Miesięczne przychody"
+          I18n.t("charts.monthly_incomes")
         end
       end
 
       def ytitle
         case type
         when "daily_spendings"
-          "Wydatki"
+          I18n.t("charts.spendings")
         when "monthly_spendings"
-          "Wydatki"
+          I18n.t("charts.spendings")
         else
-          "Przychody"
+          I18n.t("charts.incomes")
         end
       end
     end

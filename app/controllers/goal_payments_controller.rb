@@ -15,7 +15,7 @@ class GoalPaymentsController < ApplicationController
       flash[:success] = I18n.t("flash.goal_payments.add")
       redirect_back_or_to money_index_path, status: :see_other
     else
-      flash.now[:alert] = service.errors.flatten
+      flash.now[:alert] = service.errors.join(' ')
       render turbo_stream: turbo_stream.update('flash', partial: 'layouts/flash'), status: :unprocessable_entity
     end
   end
@@ -26,7 +26,7 @@ class GoalPaymentsController < ApplicationController
       flash[:success] = I18n.t("flash.goal_payments.edit")
       redirect_back_or_to money_index_path, status: :see_other
     else
-      flash.now[:alert] = service.errors.flatten
+      flash.now[:alert] = service.errors.join(' ')
       render turbo_stream: turbo_stream.update('flash', partial: 'layouts/flash'), status: :unprocessable_entity
     end
   end

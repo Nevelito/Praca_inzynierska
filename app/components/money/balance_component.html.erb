@@ -4,7 +4,7 @@
       <%= text %>
     </div>
     <div class="text-xl xl:text-2xl font-bold <%= color %>">
-      <%= "#{balance} PLN" %>
+      <%= I18n.t("spendings.amount_value", amount: balance) %>
     </div>
   </div>
 </div>

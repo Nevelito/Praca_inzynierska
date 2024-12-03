@@ -11,14 +11,12 @@ module GoalPayments
     end
 
     def call
-      goal = Goal.find(params[:goal_payment][:goal_id])
-      @errors << I18n.t("errors.goal_payments.invalid_goal") if goal.blank?
       validator = GoalPaymentValidator.new(params)
       validator.validate_data
-      if validator.success? && @errors.blank?
+      if validator.success?
         amount_in_pln = convert_amount_to_pln(params[:goal_payment][:amount], params[:goal_payment][:currency])
         GoalPayment.create!(amount: amount_in_pln,
-                         goal_id: goal.id,
+                         goal_id: validator.goal_id,
                          user_id: current_user.id,
                          payment_date: Time.zone.today)
       else

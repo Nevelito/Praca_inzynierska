@@ -15,6 +15,10 @@
   </div>
 
   <div class="flex flex-col px-4 xl:px-8">
-    <%= render Money::Goals::DetailComponent.with_collection(goals) %>
+    <% if goals.present? %>
+      <%= render Money::Goals::DetailComponent.with_collection(goals) %>
+    <% else %>
+      <div class="flex place-items-center justify-center font-bold mt-8 text-red-700"><%= I18n.t("goals.no_goals") %></div>
+    <% end %>
   </div>
 </div>

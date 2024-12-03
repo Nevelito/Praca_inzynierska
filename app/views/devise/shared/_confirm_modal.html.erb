@@ -1,0 +1,16 @@
+<dialog id="confirm" class="modal">
+  <div class="modal__content w-full md:w-[28rem] h-56 text-center p-6">
+    <div class="text-right mb-2">
+      <button class="confirm-cancel">
+        <%= inline_svg_tag "cross.svg", class: "text-green-900 ml-auto cursor-pointer w-5 h-5" %>
+      </button>
+    </div>
+    <div class="h-20 border-b-2 border-neutral-300 pt-2 mb-2">
+      <h3 id="confirm-title" class="font-bold text-xl">Replaced by `data-turbo-confirm` attribute</h3>
+    </div>
+    <div class="modal-actions place-items-center justify-center flex flex-row space-x-5 h-16">
+      <button class="confirm-cancel secondary-button h-12 w-32"><%= I18n.t("modal.cancel") %></button>
+      <button id="confirm-accept" class="primary-button h-12 w-32"><%= I18n.t("modal.confirm") %></button>
+    </div>
+  </div>
+</dialog>

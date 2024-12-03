@@ -15,7 +15,7 @@ class IncomesController < ApplicationController
       flash[:success] = I18n.t("flash.incomes.add")
       redirect_back_or_to money_index_path, status: :see_other
     else
-      flash.now[:alert] = service.errors.flatten
+      flash.now[:alert] = service.errors.join(' ')
       render turbo_stream: turbo_stream.update('flash', partial: 'layouts/flash'), status: :unprocessable_entity
     end
   end
@@ -26,7 +26,7 @@ class IncomesController < ApplicationController
       flash[:success] = I18n.t("flash.incomes.edit")
       redirect_back_or_to money_index_path, status: :see_other
     else
-      flash.now[:alert] = service.errors.flatten
+      flash.now[:alert] = service.errors.join(' ')
       render turbo_stream: turbo_stream.update('flash', partial: 'layouts/flash'), status: :unprocessable_entity
     end
   end
@@ -66,14 +66,30 @@ class IncomesController < ApplicationController
   end
 
   def incomes_by_month
-    Income.where(date: @selected_date.beginning_of_year..@selected_date.end_of_year)
+    Income.where(date: @selected_date.beginning_of_year..@selected_date.end_of_year, user: current_user)
             .group('EXTRACT(MONTH FROM date)')
             .sum(:amount)
   end
 
   def incomes_by_day
-    Income.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month)
+    Income.where(date: @selected_date.beginning_of_month..@selected_date.end_of_month, user: current_user)
             .group('EXTRACT(DAY FROM date)')
             .sum(:amount)
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

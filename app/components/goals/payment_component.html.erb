@@ -1,6 +1,6 @@
 <div class="flex flex-row items-center justify-between bg-white border border-gray-300 shadow-md rounded-lg my-2 px-4 xl:px-12 py-3">
   <div class="text-lg font-semibold text-blue-700 w-1/2 xl:w-1/3">
-    <%= "#{goal_payment.amount} PLN" %>
+    <%= I18n.t("incomes.amount_value", amount: goal_payment.amount) %>
   </div>
   <div class="hidden xl:flex text-lg text-gray-600 w-1/3 justify-center">
     <%= "#{date.strftime("%d")} #{I18n.t("date.month_names")[date.strftime("%m").to_i]} #{date.strftime("%Y")}" %>

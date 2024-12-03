@@ -6,8 +6,8 @@
                 class: "bg-blue-700 text-white border border-blue-700 py-2 px-4 text-sm xl:text-base rounded-full shadow-md hover:bg-blue-800 transition duration-300" %>
   </div>
   <div class="flex flex-row">
-    <%= render Money::Incomes::DetailComponent.new(text: "Dzisiaj", amount: incomes_today) %>
-    <%= render Money::Incomes::DetailComponent.new(text: "W tym miesiącu", amount: incomes_this_month) %>
+    <%= render Money::Incomes::DetailComponent.new(text: I18n.t("incomes.today"), amount: incomes_today) %>
+    <%= render Money::Incomes::DetailComponent.new(text: I18n.t("incomes.this_month"), amount: incomes_this_month) %>
   </div>
 
 </div>

@@ -16,6 +16,8 @@ class GoalValidator < BaseValidator
     validate_target_amount?
     validate_description?
     validate_due_date?
+
+    self
   end
 
   private
@@ -51,8 +53,7 @@ class GoalValidator < BaseValidator
   end
 
   def valid_date?(value)
-    parsed_date = Date.parse(value)
-    parsed_date > Date.today
+    Date.parse(value) > Date.today
   rescue ArgumentError, TypeError
     false
   end
