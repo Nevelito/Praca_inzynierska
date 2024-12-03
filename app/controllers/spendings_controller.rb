@@ -91,3 +91,10 @@ class SpendingsController < ApplicationController
     end
   end
 end
+
+
+
+
+
+
+

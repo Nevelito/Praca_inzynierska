@@ -24,15 +24,14 @@
     </div>
     <% if user_signed_in? %>
       <div>
-        <div class="h-px bg-neutral-300 xl:hidden"></div>
-        <%= link_to("#", class: "") do %>
-          <div class="flex h-18 px-6 place-items-center text-blue-500 text-xl">Ustawienia profilu</div>
+        <%= link_to(incomes_path) do %>
+          <div class="flex h-18 px-6 place-items-center text-blue-500 text-xl">Wszystkie przychody</div>
         <% end %>
-        <div class="h-px bg-neutral-300"></div>
-        <% if current_user&.admin %>
-          <%= link_to(avo_path, method: :get, class: "") do %>
-            <div class="flex h-18 px-6 place-items-center text-blue-500 text-xl">Panel Administratora</div>
-          <% end %>
+        <%= link_to(spendings_path) do %>
+          <div class="flex h-18 px-6 place-items-center text-blue-500 text-xl">Wszystkie wydatki</div>
+        <% end %>
+        <%= link_to(currency_index_path) do %>
+          <div class="flex h-18 px-6 place-items-center text-blue-500 text-xl">Widok walutowy</div>
         <% end %>
         <%= link_to(destroy_user_session_path, data: { turbo_method: :delete }, class: "") do %>
           <div class="flex h-18 px-6 place-items-center text-blue-500 text-xl">Wyloguj się</div>
